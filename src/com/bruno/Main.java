@@ -1,13 +1,21 @@
 package com.bruno;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
 
-		Map<Integer, String> freeHours = new HashMap<Integer, String>();
+		int kidsAmount = 0;
+
+		Kid test = new Kid("Jan");
+
+		List<Kid> kids = new ArrayList<>();
+
+
+
 
 
 	}
