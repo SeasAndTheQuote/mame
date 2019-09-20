@@ -1,48 +1,31 @@
 package com.bruno;
 
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Kid {
+public class Kid extends GeneralAvailability {
 
-	final static int howLong = 125;
-	final static int beginningHour = 700;
 	String name;
-	List<Integer> availabilityList;
 
-	//0 - first possible moment of classes start
-	Availability[] state = new Availability[howLong];
+	public Kid(String name, ArrayList<Integer> avList) {
 
-	public Kid(String name) {
-
+		super("kid");
 		this.name = name;
 
-		for (int i = 0; i < state.length; i++) {
-			state[i] = Availability.FREE;
-		}
+		setAvailability(avList);
 
-		System.out.println(Arrays.toString(state));
-
-		for(int i = 0; i < state.length; i++) {
-			int temp = beginningHour + ((5*i)%60) + ((5*i)/60)*100; //calculating the actual hour
-			System.out.println(temp + " - " + state[i]);
-		}
-
-		availabilityList = calculateStartingHours();
+		System.out.print("dziecko " + name + ": ");
+		printAvailability();
 	}
 
-	public List<Integer> calculateStartingHours() {
+	private void setAvailability(ArrayList<Integer> avalsList) {
 
-		List<Integer> startingMinute = new ArrayList<>();
-		startingMinute.add(6);
-		startingMinute.add(7);
-
-
-		return startingMinute;
+		for(int minute : avalsList) {
+			state[minute] = "FREE";
+		}
 	}
+
 
 
 }
