@@ -1,12 +1,16 @@
 package com.bruno;
 
-import java.util.ArrayList;
+public class MyPlan {
 
-public class MyPlan extends GeneralAvailability {
+	final static int howLong = 125;
+	final static int beginningHour = 700;
+
+	String[][] state = new String[5][howLong];
 
 	public MyPlan() {
 
-		super("teacher");
+		for (int k = 0; k < 5; k++)
+			for (int i = 0; i < state.length; i++) state[k][i] = "FREE"; //initialise availability array
 
 	}
 
@@ -31,5 +35,16 @@ public class MyPlan extends GeneralAvailability {
 		System.out.print("moj plan: ");
 		printAvailability();
 	}
+	protected void printAvailability() {
+
+		for (int k = 0; k < 5; k++){
+			for (int i = 0; i < state.length; i++) {
+				int temp = beginningHour + ((5*i)%60) + ((5*i)/60)*100; //calculating the actual hour
+				System.out.print(temp + " - " + state[k][i] + ", ");
+			}
+		}
+		System.out.println();
+	}
+
 
 }

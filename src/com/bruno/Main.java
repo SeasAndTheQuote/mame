@@ -1,9 +1,10 @@
 package com.bruno;
 
+import com.collections.Pair;
+
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Hashtable;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 
@@ -15,21 +16,27 @@ public class Main {
 		Kid second = new Kid("Pam",  new ArrayList<>(Arrays.asList(21, 22, 23, 24)));
 */
 		List<Kid> kids = new ArrayList<>();
+
+		Pair<Integer, Integer> test = new Pair<>(1, 2);
+
+		Hashtable<Integer, Integer> foo = new Hashtable<>();
+		foo.put(1, 6);
+		test.put(1, 5);
 		/*kids.add(first);
 		kids.add(second);*/
 
 		// TODO add external input of kids' availability
 
+
 		for(Kid pupil : kids) {
 			System.out.println(pupil.name);
 
-			for (int i = 0; i < pupil.startingMinutesList.size(); i++){
-				pupil.startingMinutesList.key
+			test.forEach((date, time) -> {
 
-			}
+			});
 
 			pupil.startingMinutesList.forEach(
-					(day, minute) -> { 
+					(day, minute) -> {
 						if(myPlan.checkAvailability(day, minute, pupil.name))
 							break;
 
