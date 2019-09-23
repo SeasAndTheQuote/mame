@@ -10,23 +10,23 @@ public class MyPlan extends GeneralAvailability {
 
 	}
 
-	public boolean checkAvailability(int classesStart, String kidName) {
+	public boolean checkAvailability(int classesStartDay, int classesStartMinute, String kidName) {
 
-		for (int i = classesStart; i < classesStart + 12; i++) {
-			if(!state[classesStart].equals("FREE")) {
+		for (int i = classesStartMinute; i < classesStartMinute + 12; i++) {
+			if(!state[classesStartDay][classesStartMinute].equals("FREE")) {
 				return false;
 			}
 		}
 
-		addClasses(classesStart, kidName);
+		addClasses(classesStartMinute, classesStartDay, kidName);
 		return true;
 
 	}
 
-	public void addClasses(int newClassStart, String name) {
+	public void addClasses(int newClassStartMinute, int newClassStartDay, String name) {
 
-		for (int i = newClassStart; i < newClassStart + 12; i++)
-			state[i] = name;
+		for (int i = newClassStartMinute; i < newClassStartMinute + 12; i++)
+			state[newClassStartDay][i] = name;
 
 		System.out.print("moj plan: ");
 		printAvailability();
